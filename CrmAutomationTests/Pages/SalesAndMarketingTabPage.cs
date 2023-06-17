@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechTalk.SpecFlow;
 
 namespace CrmAutomationTests.Pages
 {
+    [Binding]
     public class SalesAndMarketingTabPage : BasePage
     {
         private IWebElement SalesAndMarketingTab => _driver.FindElement(By.CssSelector(SalesAndMarketingTabSelectors.SalesAndMarketingTab));
