@@ -16,10 +16,6 @@ namespace CrmAutomationTests.Hooks
         private IWebDriver _driver;
         private WebDriverWait _wait;
 
-        public TestRunHooks()
-        {
-        }
-
         [BeforeScenario]
         public void BeforeScenario()
         {

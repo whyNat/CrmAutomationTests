@@ -8,5 +8,6 @@ namespace CrmAutomationTests.Steps
 {
     public class MutualSteps
     {
+
     }
 }

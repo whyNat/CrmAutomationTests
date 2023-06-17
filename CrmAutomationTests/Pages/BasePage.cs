@@ -13,6 +13,7 @@ namespace CrmAutomationTests.Pages
         protected IWebDriver _driver;
         protected WebDriverWait _wait;
         protected double _timeout;
+        private 
 
         protected BasePage(IWebDriver driver)
         {
