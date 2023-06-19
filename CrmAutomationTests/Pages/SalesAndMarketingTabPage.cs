@@ -40,6 +40,14 @@ namespace CrmAutomationTests.Pages
 
         private IWebElement SaveButton => _driver.FindElement(By.CssSelector(SalesAndMarketingTabSelectors.SaveButton));
 
+        private IWebElement SavedFirstNameLastName => _driver.FindElement(By.CssSelector(SalesAndMarketingTabSelectors.SavedFirstNameLastName));
+
+        private IWebElement SavedCategories => _driver.FindElement(By.CssSelector(SalesAndMarketingTabSelectors.SavedCategories));
+
+        private IWebElement SavedRole => _driver.FindElement(By.CssSelector(SalesAndMarketingTabSelectors.SavedRole));
+
+        private IWebElement SavedContact => _driver.FindElement(By.CssSelector(SalesAndMarketingTabSelectors.SavedContact));
+
         public SalesAndMarketingTabPage(IWebDriver driver) : base(driver)
         {
         }
@@ -120,31 +128,21 @@ namespace CrmAutomationTests.Pages
             return CreateButton;
         }
 
-        public IWebElement GetCategoryDropdown()
+        public void GetCategoryDropdown()
         {
-            return CategoryDropdown;
+            CategoryDropdown.Click();
         }
 
         public IWebElement GetCategoryInput(string inputName)
         {
-            foreach(var item in CategoryInputs)
+            foreach (var item in CategoryInputs)
             {
                 if (item.GetAttribute("innerText") == inputName)
                 {
+                    Actions actions = new Actions(_driver);
+                    actions.MoveToElement(item);
+                    actions.Perform();
                     return item;
-                }
-                else
-                {
-                    if (!item.Enabled)
-                    {
-                        Actions actions = new Actions(_driver);
-                        actions.MoveToElement(item);
-                        actions.Perform();
-                        if (item.GetAttribute("innerText") == inputName)
-                        {
-                            return item;
-                        }
-                    }
                 }
             }
             return null;
@@ -160,21 +158,41 @@ namespace CrmAutomationTests.Pages
             return RoleOptions;
         }
 
-        public void ChoseRole(string roleName)
+        public IWebElement ChoseRole(string roleName)
         {
             foreach (var option in GetRoleOption())
             {
                 if (option.Text.Contains(roleName))
                 {
-                    option.Click();
+                    return option;
                 }
             }
-            
+            return null;
         }
 
         public IWebElement GetSaveButton()
         {
             return SaveButton;
+        }
+
+        public IWebElement GetSavedFirstNameLastName()
+        {
+            return SavedFirstNameLastName;
+        }
+
+        public IWebElement GetSavedCategories()
+        {
+            return SavedCategories;
+        }
+
+        public IWebElement GetSavedRole()
+        {
+            return SavedRole;
+        }
+
+        public IWebElement GetSavedContact()
+        {
+            return SavedContact;
         }
     }
 }

@@ -10,7 +10,7 @@ Scenario Outline: CRM user can create new contact
 	When user clicks on Sales & Marketing tab
 	And user clicks Contacts menu item
 	And user creates new contact by enterning <first name>, <last name>, <role>, <first category>, <second category> and saving the form
-	Then created contact data matches entered values
+	Then created contact data matches entered values: <first name>, <last name>, <role>, <first category>, <second category>
 	Examples: 
 	| first name | last name | role | first category | second category |
-	| Katrina    | Lechowicz | CEO  | Customers      | Suppliers       |
+	| Madleine   | Lechowicz | CEO  | Customers      | Suppliers       |

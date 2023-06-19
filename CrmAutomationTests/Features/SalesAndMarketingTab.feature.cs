@@ -132,26 +132,26 @@ this.ScenarioInitialize(scenarioInfo);
                             "", firstName, lastName, role, firstCategory, secondCategory), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
- testRunner.Then("created contact data matches entered values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("created contact data matches entered values: {0}, {1}, {2}, {3}, {4}", firstName, lastName, role, firstCategory, secondCategory), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("CRM user can create new contact: Katrina")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("CRM user can create new contact: Madleine")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SalesAndMarketingTab")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Katrina")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:first name", "Katrina")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Madleine")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:first name", "Madleine")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:last name", "Lechowicz")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:role", "CEO")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:first category", "Customers")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:second category", "Suppliers")]
-        public void CRMUserCanCreateNewContact_Katrina()
+        public void CRMUserCanCreateNewContact_Madleine()
         {
 #line 8
-this.CRMUserCanCreateNewContact("Katrina", "Lechowicz", "CEO", "Customers", "Suppliers", ((string[])(null)));
+this.CRMUserCanCreateNewContact("Madleine", "Lechowicz", "CEO", "Customers", "Suppliers", ((string[])(null)));
 #line hidden
         }
     }

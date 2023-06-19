@@ -43,19 +43,26 @@ namespace CrmAutomationTests.Steps
             _salesAndMarketingPage.GetCreateButton().Click();
             _salesAndMarketingPage.GetFirstName().SendKeys(firstName);
             _salesAndMarketingPage.GetLastName().SendKeys(lastName);
-            _salesAndMarketingPage.GetCategoryDropdown().Click();
+            _salesAndMarketingPage.GetCategoryDropdown();
             _salesAndMarketingPage.GetCategoryInput(firstCategory).Click();
-            _salesAndMarketingPage.GetCategoryDropdown().Click();
+            _salesAndMarketingPage.GetCategoryDropdown();
             _salesAndMarketingPage.GetCategoryInput(secCategory).Click();
             _salesAndMarketingPage.GetRoleDropdown().Click();
-            _salesAndMarketingPage.ChoseRole(role);
+            _salesAndMarketingPage.ChoseRole(role).Click();
             _salesAndMarketingPage.GetSaveButton().Click();
         }
 
-        [Then(@"created contact data matches entered values")]
-        public void ThenCreatedContactDataMatchesEnteredValues()
+        [Then(@"created contact data matches entered values: (.*), (.*), (.*), (.*), (.*)")]
+        public void ThenCreatedContactDataMatchesEnteredValues(string expectedFirstName, string expectedLastName, string expectedRole, string expectedFirstCategory, string expectedSecCategory)
         {
-            throw new PendingStepException();
+            _salesAndMarketingPage.GetSavedContact().Click();
+            var savedFirstAndLastName = _salesAndMarketingPage.GetSavedFirstNameLastName().Text.Trim();
+            var savedCategories = _salesAndMarketingPage.GetSavedCategories().Text.Substring(10);
+            var savedRole = _salesAndMarketingPage.GetSavedRole().Text;
+            Assert.AreEqual(expectedFirstName + " " + expectedLastName, savedFirstAndLastName);
+            Assert.AreEqual(expectedFirstCategory + ", " + expectedSecCategory, savedCategories);
+            Assert.AreEqual(expectedRole, savedRole);
+
         }
     }
 }
