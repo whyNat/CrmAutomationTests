@@ -81,34 +81,6 @@ namespace CrmAutomationTests.Pages
             return ContactsSidebarSection;
         }
 
-        public void ClickCreateContactItem()
-        {
-            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until(ExpectedConditions.UrlToBe("https://demo.1crmcloud.com/index.php?module=Contacts&action=index"));
-            var sideBar = GetContactsSidebarSection();
-
-            if (sideBar.Count == 4)
-            {
-                foreach (var item in sideBar)
-                {
-                    var linkName = item.GetAttribute("href");
-                    if (linkName.Contains("action=EditView"))
-                    {
-                        item.Click();
-                    }
-                }
-            }
-        }
-
-        public List<IWebElement> WaitForElements(List<IWebElement> elements)
-        {
-            if (elements.Count <= 4)
-            {
-                return elements;
-            }
-            return null;
-        }
-
         public IWebElement GetFirstName()
         {
             _wait.Until(ExpectedConditions.UrlToBe("https://demo.1crmcloud.com/index.php?module=Contacts&action=EditView&record=&list_layout_name=Browse"));
@@ -130,6 +102,7 @@ namespace CrmAutomationTests.Pages
 
         public void GetCategoryDropdown()
         {
+            TryFindElement(CategoryDropdown);
             CategoryDropdown.Click();
         }
 

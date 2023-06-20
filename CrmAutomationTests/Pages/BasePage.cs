@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,18 @@ namespace CrmAutomationTests.Pages
         public IWebElement FindElementByText(string text)
         {
             return _driver.FindElement(By.XPath($"//*[contains(., '{text}')]"));
+        }
+
+        public IWebElement TryFindElement(IWebElement element)
+        {
+            try
+            {
+                return element;
+            }
+            catch (StaleElementReferenceException ex)
+            {
+                return element;
+            }
         }
     }
 }
