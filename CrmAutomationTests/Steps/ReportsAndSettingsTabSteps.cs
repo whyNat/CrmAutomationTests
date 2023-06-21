@@ -54,6 +54,7 @@ namespace CrmAutomationTests.Steps
         {
             _reportsAndSettingsPage.GetActionsButton().Click();
             _reportsAndSettingsPage.GetDeleteButton().Click();
+            _reportsAndSettingsPage.AcceptAlert();
         }
 
         [Then(@"selected items are no longer in the table")]

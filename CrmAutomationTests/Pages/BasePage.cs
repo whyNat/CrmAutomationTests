@@ -44,5 +44,11 @@ namespace CrmAutomationTests.Pages
                 return element;
             }
         }
+
+        public void AcceptAlert()
+        {
+            IAlert alert = _driver.SwitchTo().Alert();
+            alert.Accept();
+        }
     }
 }

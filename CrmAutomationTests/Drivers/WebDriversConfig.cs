@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace CrmAutomationTests.Drivers
     [Binding]
     public class WebDriversConfig
     {
-        readonly IWebDriver driver = new ChromeDriver();
+        readonly IWebDriver driver = new FirefoxDriver();
 
         public IWebDriver GetDriver() { return driver; }
     }

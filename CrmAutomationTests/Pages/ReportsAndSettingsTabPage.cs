@@ -120,8 +120,10 @@ namespace CrmAutomationTests.Pages
             var chosenItems = new List<IWebElement>();
             for (int i = 1; i <= numberOfItems; i++)
             {
-                WaitForElement(15);
-                GetCheckboxes()[i].Click();
+                WaitForElement(30);
+                Actions action = new Actions(_driver);
+                action.MoveToElement(Checkboxes[i]).Click().Perform();
+                //Checkboxes[i].Click();
                 chosenItems.Add(GetCheckboxes()[i]);
             }
             return chosenItems;
