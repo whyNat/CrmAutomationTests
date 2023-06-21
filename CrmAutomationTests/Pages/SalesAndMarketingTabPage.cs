@@ -102,8 +102,8 @@ namespace CrmAutomationTests.Pages
 
         public void GetCategoryDropdown()
         {
-            TryFindElement(CategoryDropdown);
-            CategoryDropdown.Click();
+            Actions action = new Actions(_driver);
+            action.MoveToElement(CategoryDropdown).Click().Perform();
         }
 
         public IWebElement GetCategoryInput(string inputName)
@@ -165,6 +165,7 @@ namespace CrmAutomationTests.Pages
 
         public IWebElement GetSavedContact()
         {
+            WaitForElement(15);
             return SavedContact;
         }
     }
