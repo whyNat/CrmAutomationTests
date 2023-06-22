@@ -27,7 +27,6 @@ namespace CrmAutomationTests.Steps
         public void WhenUserSearchesForProjectProfitabilityReport(string reportName)
         {
             _reportsAndSettingsPage.SearchForReportByName(reportName);
-            //_reportsAndSettingsPage.GetSearchField().SendKeys(Keys.Tab);
             _reportsAndSettingsPage.GetReportLink(reportName);
         }
 
@@ -63,7 +62,6 @@ namespace CrmAutomationTests.Steps
             Assert.IsFalse(_reportsAndSettingsPage.GetReportLinks().Contains(_chosenItems[0]));
             Assert.IsFalse(_reportsAndSettingsPage.GetReportLinks().Contains(_chosenItems[1]));
             Assert.IsFalse(_reportsAndSettingsPage.GetReportLinks().Contains(_chosenItems[2]));
-
         }
     }
 }

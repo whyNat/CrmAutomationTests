@@ -15,17 +15,11 @@ namespace CrmAutomationTests.Pages
     {
         private IWebElement ReportsAndSettingsTab => _driver.FindElement(By.CssSelector(ReportsAndSettingsTabSelectors.ReportsAndSettingsTab));
 
-        private IWebElement ReportSideButton => _driver.FindElement(By.CssSelector(ReportsAndSettingsTabSelectors.ReportSideButton));
-
         private IWebElement SearchField => _driver.FindElement(By.CssSelector(ReportsAndSettingsTabSelectors.SearchField));
-
-        private IWebElement EnteredReportName => _driver.FindElement(By.CssSelector(ReportsAndSettingsTabSelectors.EnteredReportName));
 
         private IWebElement ReportLink => _driver.FindElement(By.CssSelector(ReportsAndSettingsTabSelectors.ReportLink));
 
         private List<IWebElement> ReportLinks => _driver.FindElements(By.CssSelector(ReportsAndSettingsTabSelectors.ReportLink)).ToList();
-
-        private IWebElement ReportName => _driver.FindElement(By.CssSelector(ReportsAndSettingsTabSelectors.ReportName));
 
         private IWebElement RunReportButton => _driver.FindElement(By.CssSelector(ReportsAndSettingsTabSelectors.RunReportButton));
 
@@ -47,40 +41,18 @@ namespace CrmAutomationTests.Pages
             return ReportsAndSettingsTab;
         }
 
-        public IWebElement GetReportSideButton()
-        {
-            WaitForElement(15);
-            return ReportSideButton;
-        }
-
-        public IWebElement GetSearchField()
-        {
-            return SearchField;
-        }
-
         public void SearchForReportByName(string name)
         {
             SearchField.SendKeys(name);
             SearchField.SendKeys(Keys.Enter);
             SearchField.SendKeys(Keys.Return);
-        }
-
-        public void SubmitEnteredText()
-        {
-            Actions action = new Actions(_driver);
-            action.MoveToElement(SearchField).Click().Perform();
+            WaitForElement(20);
         }
 
         public void GetReportLink(string reportName)
         {
-            TryFindElement(ReportLink);
+            WaitForElement(30);
             ReportLink.Click();
-            _wait.Until(d => d.FindElement(By.CssSelector(ReportsAndSettingsTabSelectors.ReportName)).Text.Contains(reportName));
-        }
-
-        public IWebElement GetReportName()
-        {
-            return ReportName;
         }
 
         public List<IWebElement> GetReportItemsList()
@@ -92,7 +64,6 @@ namespace CrmAutomationTests.Pages
         {
             Actions action = new Actions(_driver);
             action.MoveToElement(RunReportButton).Click().Perform();
-            //RunReportButton.Click();
         }
 
         public List<IWebElement> GetReportLinks()

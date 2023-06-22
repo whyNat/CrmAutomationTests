@@ -20,8 +20,6 @@ namespace CrmAutomationTests.Pages
         private IWebElement SalesAndMarketingTab => _driver.FindElement(By.CssSelector(SalesAndMarketingTabSelectors.SalesAndMarketingTab));
         private List<IWebElement> MenuTabSubElements => _driver.FindElements(By.CssSelector(SalesAndMarketingTabSelectors.MenuTabSubElements)).ToList();
 
-        private IWebElement MainTitle => _driver.FindElement(By.CssSelector(SalesAndMarketingTabSelectors.MainTitle));
-
         private List<IWebElement> ContactsSidebarSection => _driver.FindElements(By.CssSelector(SalesAndMarketingTabSelectors.ContactsSidebarSection)).ToList();
 
         private IWebElement CreateButton => _driver.FindElement(By.CssSelector(SalesAndMarketingTabSelectors.CreateButton));
@@ -74,11 +72,6 @@ namespace CrmAutomationTests.Pages
                     item.Click();
                 }
             }
-        }
-
-        public List<IWebElement> GetContactsSidebarSection()
-        {
-            return ContactsSidebarSection;
         }
 
         public IWebElement GetFirstName()

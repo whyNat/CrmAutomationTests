@@ -39,7 +39,6 @@ namespace CrmAutomationTests.Steps
         [When(@"user creates new contact by enterning (.*), (.*), (.*), (.*), (.*) and saving the form")]
         public void WhenUserCreatesNewContactByEnterningKatrinaLechowiczCEOCustomersSuppliersAndSavingTheForm(string firstName, string lastName, string role, string firstCategory, string secCategory)
         {
-            //_salesAndMarketingPage.ClickCreateContactItem();
             _salesAndMarketingPage.GetCreateButton().Click();
             _salesAndMarketingPage.GetFirstName().SendKeys(firstName);
             _salesAndMarketingPage.GetLastName().SendKeys(lastName);
@@ -62,7 +61,6 @@ namespace CrmAutomationTests.Steps
             Assert.AreEqual(expectedFirstName + " " + expectedLastName, savedFirstAndLastName);
             Assert.AreEqual(expectedFirstCategory + ", " + expectedSecCategory, savedCategories);
             Assert.AreEqual(expectedRole, savedRole);
-
         }
     }
 }

@@ -20,29 +20,11 @@ namespace CrmAutomationTests.Pages
         {
             _driver = driver;
             _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(_timeout));
-
         }
 
         public void WaitForElement(int seconds)
         {
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(seconds);
-        }
-
-        public IWebElement FindElementByText(string text)
-        {
-            return _driver.FindElement(By.XPath($"//*[contains(., '{text}')]"));
-        }
-
-        public IWebElement TryFindElement(IWebElement element)
-        {
-            try
-            {
-                return element;
-            }
-            catch (StaleElementReferenceException ex)
-            {
-                return element;
-            }
         }
 
         public void AcceptAlert()

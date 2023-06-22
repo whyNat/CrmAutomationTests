@@ -3,8 +3,6 @@
 	As a CRM user
 	I want to have access to all modules in the Sales & Marketing tab
 
-
-@tag1
 Scenario Outline: CRM user can create new contact
 	Given admin user logged in to the CRM entering password admin 
 	When user clicks on Sales & Marketing tab

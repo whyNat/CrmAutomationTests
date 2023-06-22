@@ -13,6 +13,7 @@ namespace CrmAutomationTests.Drivers
     [Binding]
     public class WebDriversConfig
     {
+        //readonly IWebDriver driver = new ChromeDriver();
         readonly IWebDriver driver = new FirefoxDriver();
 
         public IWebDriver GetDriver() { return driver; }
