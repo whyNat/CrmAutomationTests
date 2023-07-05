@@ -94,13 +94,7 @@ namespace CrmAutomationTests.Features
         
         public virtual void CRMUserCanCreateNewContact(string firstName, string lastName, string role, string firstCategory, string secondCategory, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "tag1"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("first name", firstName);
             argumentsOfScenario.Add("last name", lastName);
@@ -108,7 +102,7 @@ namespace CrmAutomationTests.Features
             argumentsOfScenario.Add("first category", firstCategory);
             argumentsOfScenario.Add("second category", secondCategory);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CRM user can create new contact", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 8
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -118,20 +112,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 9
+#line 7
  testRunner.Given("admin user logged in to the CRM entering password admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 10
+#line 8
  testRunner.When("user clicks on Sales & Marketing tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 11
+#line 9
  testRunner.And("user clicks Contacts menu item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 12
+#line 10
  testRunner.And(string.Format("user creates new contact by enterning {0}, {1}, {2}, {3}, {4} and saving the form" +
                             "", firstName, lastName, role, firstCategory, secondCategory), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 13
+#line 11
  testRunner.Then(string.Format("created contact data matches entered values: {0}, {1}, {2}, {3}, {4}", firstName, lastName, role, firstCategory, secondCategory), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -141,7 +135,6 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("CRM user can create new contact: Madleine")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SalesAndMarketingTab")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("tag1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Madleine")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:first name", "Madleine")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:last name", "Lechowicz")]
@@ -150,7 +143,7 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:second category", "Suppliers")]
         public void CRMUserCanCreateNewContact_Madleine()
         {
-#line 8
+#line 6
 this.CRMUserCanCreateNewContact("Madleine", "Lechowicz", "CEO", "Customers", "Suppliers", ((string[])(null)));
 #line hidden
         }

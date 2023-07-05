@@ -1,4 +1,5 @@
-﻿using BoDi;
+﻿using Allure.Commons;
+using BoDi;
 using CrmAutomationTests.Drivers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -18,6 +19,7 @@ namespace CrmAutomationTests.Hooks
         private IWebDriver _driver;
         private WebDriverWait _wait;
         private readonly IObjectContainer _container;
+        public static AllureLifecycle allure = AllureLifecycle.Instance;
 
         public TestRunHooks(IObjectContainer container)
         {
@@ -27,6 +29,7 @@ namespace CrmAutomationTests.Hooks
         [BeforeScenario]
         public void BeforeScenario()
         {
+            allure.CleanupResultDirectory();
             var webDriver = new WebDriversConfig();
             _driver = webDriver.GetDriver();
             _container.RegisterInstanceAs(_driver);
